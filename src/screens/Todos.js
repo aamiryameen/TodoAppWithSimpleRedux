@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTodo, removeTodo } from '../Redux/Reducer/todoSlice';
 import {
@@ -10,12 +10,19 @@ import {
     StyleSheet,
     Dimensions,
 } from 'react-native';
+import {NativeModules} from 'react-native';
+
 
 const Todo = () => {
     const [todoValue, setTodoValue] = useState('');
+    const {ToastModule} = NativeModules;
     const dispatch = useDispatch();
     const data = useSelector(state => state);
     const todos = data.todos.todoList;
+
+    useEffect(() => {
+        ToastModule.showToast('This is a native toast!!');
+     }, [])
 
     const addTodoList = () => {
         if (todoValue) {
