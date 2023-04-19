@@ -1,7 +1,16 @@
-import React from "react";
+import React,{useEffect} from "react";
 import { StyleSheet, Text, View } from "react-native";
 import MapView from "react-native-maps";
+import {NativeModules} from 'react-native';
+
 export default function App() {
+    const {ToastModule} = NativeModules;
+
+
+    useEffect(() => {
+        ToastModule.showToast('This is a native toast!!');
+     }, [])
+
   return (
     <View style={styles.container}>
     {/*Render our MapView*/}
