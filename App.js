@@ -4,6 +4,7 @@ import store from './src/Redux/store'
 import { Provider } from 'react-redux'
 import Todos from './src/screens/Todos'
 import { getApi } from './src/services'
+import LocationTracking from './src/screens/locationTracking/LocationTracking'
 
 
 const App = () => {
@@ -15,7 +16,8 @@ const App = () => {
 
   return (
     <Provider store={store}>
-      <Todos />
+      {/* <Todos /> */}
+      <LocationTracking/>
     </Provider>
   )
 }

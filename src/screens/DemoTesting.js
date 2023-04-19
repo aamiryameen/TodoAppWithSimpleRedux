@@ -1,13 +1,18 @@
-import { View, Text, TextInput } from 'react-native'
+import { View, Text, TextInput, NativeModules } from 'react-native'
 import React, {  useState, } from 'react'
+
+
 
 const demoTesting = () => {
     const [counter, setCounter] = useState(3)
+    const {ToastModule} = NativeModules;
 
-    const onValueChange = (val) =>{ 
-setCounter(counter+val)
-return val
-    }
+ useEffect(() => {
+
+    ToastModule.showToast('This is a native toast!!');
+  
+  
+ }, [])
 
   return (
     <View>
