@@ -5,21 +5,17 @@ import {
   View,
   Text,
   ScrollView,
-  Image,
   Keyboard,
   TouchableOpacity,
   KeyboardAvoidingView,
 } from 'react-native';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import AsyncStorage from '@react-native-community/async-storage';
 
-import Loader from '../../components/Loader';
-import { isUserLogedIn } from '../../Redux/Reducer/authSlice';
 
 const LoginScreen = ({navigation}) => {
   const [userEmail, setUserEmail] = useState('');
   const [userPassword, setUserPassword] = useState('');
-  const [loading, setLoading] = useState(false);
   const [errortext, setErrortext] = useState('');
   const dispatch = useDispatch();
 
@@ -38,14 +34,10 @@ const LoginScreen = ({navigation}) => {
     dispatch(isUserLogedIn())
     navigation.navigate('LocationTracking')
     
-    
   };
-
-
 
   return (
     <View style={styles.mainBody}>
-      <Loader loading={loading} />
       <ScrollView
         keyboardShouldPersistTaps="handled"
         contentContainerStyle={{
@@ -56,15 +48,6 @@ const LoginScreen = ({navigation}) => {
         <View>
           <KeyboardAvoidingView enabled>
             <View style={{alignItems: 'center'}}>
-              {/* <Image
-                source={require('../Image/aboutreact.png')}
-                style={{
-                  width: '50%',
-                  height: 100,
-                  resizeMode: 'contain',
-                  margin: 30,
-                }}
-              /> */}
             </View>
             <View style={styles.SectionStyle}>
               <TextInput
@@ -72,7 +55,7 @@ const LoginScreen = ({navigation}) => {
                 onChangeText={(UserEmail) =>
                   setUserEmail(UserEmail)
                 }
-                placeholder="Enter Email" //dummy@abc.com
+                placeholder="Enter Email" 
                 placeholderTextColor="#8b9cb5"
                 autoCapitalize="none"
                 keyboardType="email-address"
@@ -91,7 +74,7 @@ const LoginScreen = ({navigation}) => {
                 onChangeText={(UserPassword) =>
                   setUserPassword(UserPassword)
                 }
-                placeholder="Enter Password" //12345
+                placeholder="Enter Password" 
                 placeholderTextColor="#8b9cb5"
                 keyboardType="default"
                 ref={passwordInputRef}
