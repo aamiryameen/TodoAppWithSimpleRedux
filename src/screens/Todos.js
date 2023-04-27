@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addTodo, removeTodo } from '../Redux/Reducer/todoSlice';
 import {
@@ -11,15 +11,12 @@ import {
     Dimensions,
 } from 'react-native';
 
-
-
 const Todo = () => {
     const [todoValue, setTodoValue] = useState('');
     const dispatch = useDispatch();
     const data = useSelector(state => state);
     const todos = data.todos.todoList;
 
-   
     const addTodoList = () => {
         if (todoValue) {
             dispatch(addTodo(todoValue));
@@ -58,12 +55,12 @@ const Todo = () => {
                 )}
             />
         )
-    }   
+    }
 
     return (
         <View style={styles.main}>
             <TextInput
-            testID='todo'
+                testID='todo'
                 style={styles.mainInput}
                 onChangeText={setTodoValue}
                 placeholder={'Add your todo here'}

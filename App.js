@@ -6,7 +6,7 @@ import { Provider } from 'react-redux'
 import Todos from './src/screens/Todos'
 import { getApi } from './src/services'
 import RootStack from './src/navigation/RootStack'
-
+import AuthStack from './src/navigation/AuthStack';
 
 const App = () => {
   LogBox.ignoreAllLogs();
@@ -16,7 +16,6 @@ const App = () => {
   // }, [])
 
   return (
-    
     <Provider store={store}>
       {/* <Todos /> */}
       <RootStack/>

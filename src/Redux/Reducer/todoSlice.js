@@ -9,7 +9,8 @@ const handleRemoveTodo = (item, todos) => {
 const todoSlice = createSlice({
     name: 'todo',
     initialState: {
-        todoList: []
+        todoList: [],
+        
     },
     reducers: {
         addTodo: (state, action) => {
