@@ -5,7 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import LocationTracking from "../screens/locationTracking/LocationTracking"
 import LocationTracker from "../screens/locationTracking/LocationTracker"
 import ChooseLocation from "../screens/locationTracking/ChooseLocation"
-import BackgroundServices from "../screens/backgroundServices"
+import BackgroundServices from "../screens/"
 import {  useSelector } from 'react-redux';
 import AuthStack from './AuthStack';
 
